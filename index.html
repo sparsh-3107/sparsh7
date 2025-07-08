@@ -205,9 +205,12 @@ function nextSlide() {
     flipSound.play();
 
     if (current === sections.length - 1) {
-  setTimeout(() => {
-    document.querySelector('.reveal-btn').classList.add('show');
-  }, 1000);
+      setTimeout(() => {
+        document.querySelector('.reveal-btn').classList.add('show');
+      }, 1000);
+    }
+  }
+}, 1000);
 }, 1500);
     }
   }
