@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday maya ❤️🧿🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&family=Gloria+Hallelujah&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 100%; height: 100%; overflow-x: hidden; scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0f0f1b, #1a1a2e);
+      color: #fff;
+      position: relative;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin: 1.5rem auto 1rem;
+      font-family: 'Great Vibes', cursive;
+      text-align: center;
+      color: #ffb6c1;
+      animation: flicker 2.5s ease-in-out infinite alternate;
+    }
+    @keyframes flicker {
+      0% { opacity: 1; }
+      50% { opacity: 0.8; text-shadow: 0 0 25px #ff80ab; }
+      100% { opacity: 1; }
+    }
+    .slider {
+      display: flex;
+      flex-direction: column;
+    }
+    .section {
+      width: 100vw;
+      height: 100vh;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 2rem;
+      position: relative;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(12px);
+      box-shadow: inset 0 0 80px #ff80ab33;
+      animation: pageTurn 1s ease;
+      transition: all 0.8s ease;
+    }
+    .section.active {
+      display: flex;
+    }
+    @keyframes pageTurn {
+      from { transform: rotateY(-90deg); opacity: 0; }
+      to { transform: rotateY(0deg); opacity: 1; }
+    }
+    .fade-text {
+      font-size: 1.3em;
+      font-family: 'Gloria Hallelujah', cursive;
+      text-align: center;
+      max-width: 90%;
+      line-height: 1.8em;
+      color: #ffe4e1;
+      animation: fadeInUp 2s ease forwards;
+      opacity: 0;
+    }
+    .section.active .fade-text {
+      opacity: 1;
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .hearts, .sparkles, .stars {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .heart, .sparkle, .star {
+      position: absolute;
+      animation: float 6s linear infinite;
+      font-size: 1.5rem;
+      opacity: 0.7;
+    }
+    .sparkle { color: #fff59d; }
+    .star { color: #aaddff; }
+    @keyframes float {
+      from { transform: translateY(100vh); opacity: 1; }
+      to { transform: translateY(-10vh); opacity: 0; }
+    }
+    .reveal-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 1rem;
+      background: #ff80ab;
+      padding: 0.8rem 1.2rem;
+      border: none;
+      border-radius: 0.8rem;
+      color: white;
+      font-family: 'Great Vibes', cursive;
+      cursor: pointer;
+      z-index: 25;
+      box-shadow: 0 0 12px #ff80ab;
+    }
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255,255,255,0.15);
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      color: white;
+      max-width: 90vw;
+      z-index: 999;
+      display: none;
+      font-family: 'Great Vibes', cursive;
+      box-shadow: 0 0 30px #ff80ab;
+      backdrop-filter: blur(15px);
+    }
+    .popup.show { display: block; animation: fadeInUp 1s ease; }
+    .popup button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: #ff80ab;
+      border: none;
+      color: white;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+    }
+    .next-btn {
+      position: fixed;
+      bottom: 2rem;
+      left: 1rem;
+      background: #80deea;
+      padding: 0.8rem 1.2rem;
+      border: none;
+      border-radius: 0.8rem;
+      color: #0f0f0f;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 25;
+      box-shadow: 0 0 12px #00bcd4;
+    }
+    audio { display: none; }
+    @media (max-width: 768px) {
+      h1 { font-size: 2em; }
+      .fade-text { font-size: 1.05em; padding: 0 1rem; }
+      .popup { padding: 1.2rem; font-size: 1em; }
+      .section { padding: 1.5rem; }
+    }
+  @keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+</style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/06/audio_f2119a6a1c.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="flipSound">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/30/audio_e2bd84659d.mp3" type="audio/mpeg">
+  </audio>
+  <h1>Happy Birthday maya 🎉</h1>
+  <div class="slider" id="slider">
+    <div class="section active"><div class="fade-text">🎂 On this special day, the universe pauses to celebrate you. Your existence adds meaning to mine, like stars lighting up the darkest sky. 💫</div></div>
+    <div class="section"><div class="fade-text">🌌 You're not just beautiful on the outside, but breathtaking within. Today, we celebrate all that you are. 💖</div></div>
+    <div class="section"><div class="fade-text">🌠 My world began spinning in color the day you walked into it. You’re not a part of my life — you are my life. 🥺</div></div>
+    <div class="section"><div class="fade-text">🎶 Your laughter is the rhythm I live for. If I could, I’d write your name on every heartbeat. ❤️</div></div>
+    <div class="section"><div class="fade-text">🦋 You are grace wrapped in stardust. I fall for you every single day. 🌷</div></div>
+    <div class="section">
+      <div class="fade-text">With all my heart and soul, forever yours,<br><strong>sparsh</strong> 💌</div>
+      <button class="reveal-btn" onclick="document.querySelector('.popup').classList.add('show')">Reveal Love Letter</button>
+    </div>
+  </div>
+  <div class="popup">
+    <p>Dear maya,<br><br>Your love is the light in my world. I am endlessly thankful for your presence. Every second with you is magic, and I promise to love you beyond limits. 💖<br><br>Love,<br>sparsh 💌</p>
+    <button onclick="document.querySelector('.popup').classList.remove('show')">Close</button>
+  </div>
+  <button class="next-btn" onclick="nextSlide()">Next ➡️</button>
+  <div class="hearts" id="hearts"></div>
+  <div class="sparkles" id="sparkles"></div>
+  <div class="stars" id="stars"></div>
+  <script>
+const sections = document.querySelectorAll('.section');
+const flipSound = document.getElementById('flipSound');
+let current = 0;
+
+function nextSlide() {
+  if (current < sections.length - 1) {
+    sections[current].classList.remove('active');
+    current++;
+    sections[current].classList.add('active');
+    flipSound.play();
+
+    if (current === sections.length - 1) {
+      setTimeout(() => {
+        const popup = document.querySelector('.popup');
+        popup.classList.add('show');
+        popup.style.animation = 'heartbeat 1s infinite';
+        triggerConfetti();
+      }, 1500);
+    }
+  }
+}
+
+function createFloaty(type, symbol, target) {
+  const el = document.createElement('div');
+  el.className = type;
+  el.textContent = symbol;
+  el.style.left = Math.random() * 100 + 'vw';
+  el.style.fontSize = 1 + Math.random() * 2 + 'rem';
+  el.style.animationDuration = 3 + Math.random() * 3 + 's';
+  document.getElementById(target).appendChild(el);
+  setTimeout(() => el.remove(), 6000);
+}
+setInterval(() => createFloaty('heart', '❤️', 'hearts'), 400);
+setInterval(() => createFloaty('sparkle', '✨', 'sparkles'), 600);
+setInterval(() => createFloaty('star', '🌟', 'stars'), 1000);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script>
+function triggerConfetti() {
+  confetti({
+    particleCount: 100,
+    spread: 70,
+    origin: { y: 0.6 },
+  });
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script>
+function triggerConfetti() {
+  confetti({
+    particleCount: 100,
+    spread: 70,
+    origin: { y: 0.6 },
+  });
+}
+</script>
+</body>
+</html>
