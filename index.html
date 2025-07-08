@@ -188,7 +188,8 @@
     <p>Dear maya,<br><br>Your love is the light in my world. I am endlessly thankful for your presence. Every second with you is magic, and I promise to love you beyond limits. 💖<br><br>Love,<br>sparsh 💌</p>
     <button onclick="document.querySelector('.popup').classList.remove('show')">Close</button>
   </div>
-  <button class="next-btn" onclick="nextSlide()">Next ➡️</button>
+  <button class="next-btn" onclick="prevSlide()">⬅️ Prev</button>
+  <button class="next-btn" style="left: auto; right: 1rem;" onclick="nextSlide()">Next ➡️</button>
   <div class="hearts" id="hearts"></div>
   <div class="sparkles" id="sparkles"></div>
   <div class="stars" id="stars"></div>
@@ -210,10 +211,17 @@ function nextSlide() {
       }, 1000);
     }
   }
-}, 1000);
-    }
-  }
+}
 
+function prevSlide() {
+  if (current > 0) {
+    sections[current].classList.remove('active');
+    current--;
+    sections[current].classList.add('active');
+    flipSound.play();
+    document.querySelector('.reveal-btn').classList.remove('show');
+  }
+}
 
 function createFloaty(type, symbol, target) {
   const el = document.createElement('div');
@@ -225,6 +233,7 @@ function createFloaty(type, symbol, target) {
   document.getElementById(target).appendChild(el);
   setTimeout(() => el.remove(), 6000);
 }
+
 setInterval(() => createFloaty('heart', '❤️', 'hearts'), 400);
 setInterval(() => createFloaty('sparkle', '✨', 'sparkles'), 600);
 setInterval(() => createFloaty('star', '🌟', 'stars'), 1000);
